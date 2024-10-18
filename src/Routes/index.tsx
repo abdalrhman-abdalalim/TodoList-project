@@ -15,7 +15,7 @@ const userData = userDataString ? JSON.parse(userDataString) :null;
 const routes = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/" element={<Layout />} errorElement={<PageNotFound />}>
+      <Route path="/" element={<Layout />} errorElement={<PageNotFound/>} >
         <Route
           index
           element={
