@@ -20,7 +20,7 @@ const routes = createBrowserRouter(
           index
           element={
             <ProtectedRoute
-              isAllowed={userData.token}
+              isAllowed={userData?.token}
               redirectionPath="/Login"
               data={userData}
             >
