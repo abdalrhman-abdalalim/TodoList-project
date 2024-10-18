@@ -23,10 +23,8 @@ export interface ILoginInputForm {
 
 
 export interface IAxiosError {
-  error:{
-    response:{
-      data:ErrorObj[]|string;
-    }
+  response:{
+    data:ErrorObj[]|string;
   }
 }
 export interface ErrorObj {

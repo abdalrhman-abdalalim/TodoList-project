@@ -64,19 +64,21 @@ const Register = () => {
     } catch (error) {
       console.log(error);
       const errorObj = error as AxiosError<IAxiosError>;
-      if(errorObj.response?.data?.message){
-         toast.error(`${errorObj.response.data.message}`, {
-          position: "bottom-center",
-          duration: 2000,
-        });
+      if (errorObj.response?.data) {
+        if (typeof errorObj.response.data === "string") {
+          toast.error(`${errorObj.response.data}`, {
+            position: "bottom-center",
+            duration: 2000,
+          });
+        } else if (Array.isArray(errorObj.response.data)) {
+          errorObj.response.data.map((er: ErrorObj) => {
+            toast.error(`${er.description}`, {
+              position: "bottom-center",
+              duration: 2000,
+            });
+          });
+        }
       }
-      const errorData = errorObj.response?.data;
-      errorData.map((er:ErrorObj)=>{
-        toast.error(`${er.description}`, {
-          position: "bottom-center",
-          duration: 2000,
-        });
-      })
     } finally {
       setIsLoading(false);
     }
