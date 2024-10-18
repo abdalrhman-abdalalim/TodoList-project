@@ -8,9 +8,6 @@ const Navbar = ({}:IProps)=>{
 
   const logKey = "loggedInUser";
   const loggedInUser = localStorage.length!=0 ? localStorage.getItem("loggedInUser"):null;
-  const storageKey = "loggedInUser";
-  const userDataString = localStorage.getItem(storageKey);
-  const userData = userDataString ? JSON.parse(userDataString) : null;
 
   const LogOut = () =>{
     localStorage.removeItem(logKey);
